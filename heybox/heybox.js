@@ -336,7 +336,7 @@ function Tasklist() {
 
 function GetCookie() {
     if (cookiereg.exec($request.headers['Cookie'])[1]) {
-        let pkey = cookiereg.exec($request.headers['Cookie'])[1]
+        let pkey = 'MTYyNTQyNzA3Ni41MV8yNzAxODEyOHl4dmlsbm9xa3hsdXVieGI__'
         let lang = urlreg.exec($request.url)[1]
         let os_t = urlreg.exec($request.url)[2]
         let os_v = urlreg.exec($request.url)[3]

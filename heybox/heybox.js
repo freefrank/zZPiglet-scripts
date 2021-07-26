@@ -38,8 +38,8 @@ hostname = api.xiaoheihe.cn
 const $ = new API('heybox')
 $.debug = [true, 'true'].includes($.read('debug')) || false
 const ERR = MYERR()
-const mainURL = 'https://data.xiaoheihe.cn'
-const urlreg = /https:\/\/api\.xiaoheihe\.cn\/account\/home_v\d\/\?lang=(.*)&os_type=(.*)&os_version=(.*)&_time=\d{10}&version=(.*)&device_id=(.*)&heybox_id=(\d+)&hkey=/
+const mainURL = 'https://api.xiaoheihe.cn'
+const urlreg = /https:\/\/api\.xiaoheihe\.cn\/account\/home_v\d\/\?lang=(.*)&os_type=(.*)&os_version=(.*)&_time=\d{10}&version=(.*)&device_id=(.*)&heybox_id=(\d+)&hkey=(.*)
 const cookiereg = /pkey=(.*);/
 $.interval = Number($.read('interval') || 600)
 $.subTitle = ''

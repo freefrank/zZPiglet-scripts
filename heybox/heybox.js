@@ -20,13 +20,13 @@ Quantumult X:
 0 0 * * * https://raw.githubusercontent.com/freefrank/zZPiglet-scripts/master/heybox/heybox.js, tag=小黑盒
 
 [rewrite_local]
-^https:\/\/data\.xiaoheihe\.cn\/account\/home_v\d\/\? url script-request-header https://raw.githubusercontent.com/zZPiglet/Task/master/heybox/heybox.js
+^https:\/\/api\.xiaoheihe\.cn\/account\/home_v\d\/\? url script-request-header https://raw.githubusercontent.com/freefrank/zZPiglet-scripts/master/heybox/heybox.js
 
 
 Surge & Loon:
 [Script]
 cron "0 0 * * *" script-path=https://raw.githubusercontent.com/zZPiglet/Task/master/heybox/heybox.js
-http-request ^https:\/\/data\.xiaoheihe\.cn\/account\/home_v\d\/\? script-path=https://raw.githubusercontent.com/zZPiglet/Task/master/heybox/heybox.js
+http-request ^https:\/\/api\.xiaoheihe\.cn\/account\/home_v\d\/\? script-path=https://raw.githubusercontent.com/freefrank/zZPiglet-scripts/master/heybox/heybox.js
 
 All app:
 [mitm]

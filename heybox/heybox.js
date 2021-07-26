@@ -17,7 +17,7 @@ Acknowledgements: chr233, JiY
 
 Quantumult X:
 [task_local]
-0 0 * * * https://raw.githubusercontent.com/zZPiglet/Task/master/heybox/heybox.js, tag=小黑盒
+0 0 * * * https://raw.githubusercontent.com/freefrank/zZPiglet-scripts/master/heybox/heybox.js, tag=小黑盒
 
 [rewrite_local]
 ^https:\/\/api\.xiaoheihe\.cn\/account\/home_v\d\/\? url script-request-header https://raw.githubusercontent.com/zZPiglet/Task/master/heybox/heybox.js

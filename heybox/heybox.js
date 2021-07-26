@@ -20,13 +20,13 @@ Quantumult X:
 0 0 * * * https://raw.githubusercontent.com/freefrank/zZPiglet-scripts/master/heybox/heybox.js, tag=小黑盒
 
 [rewrite_local]
-^https:\/\/api\.xiaoheihe\.cn\/account\/home_v\d\/\? url script-request-header https://raw.githubusercontent.com/zZPiglet/Task/master/heybox/heybox.js
+^https:\/\/data\.xiaoheihe\.cn\/account\/home_v\d\/\? url script-request-header https://raw.githubusercontent.com/zZPiglet/Task/master/heybox/heybox.js
 
 
 Surge & Loon:
 [Script]
 cron "0 0 * * *" script-path=https://raw.githubusercontent.com/zZPiglet/Task/master/heybox/heybox.js
-http-request ^https:\/\/api\.xiaoheihe\.cn\/account\/home_v\d\/\? script-path=https://raw.githubusercontent.com/zZPiglet/Task/master/heybox/heybox.js
+http-request ^https:\/\/data\.xiaoheihe\.cn\/account\/home_v\d\/\? script-path=https://raw.githubusercontent.com/zZPiglet/Task/master/heybox/heybox.js
 
 All app:
 [mitm]
@@ -38,8 +38,8 @@ hostname = api.xiaoheihe.cn
 const $ = new API('heybox')
 $.debug = [true, 'true'].includes($.read('debug')) || false
 const ERR = MYERR()
-const mainURL = 'https://api.xiaoheihe.cn'
-const urlreg = /https:\/\/data\.xiaoheihe\.cn\/account\/home_v\d\/\?lang=(.*)&os_type=(.*)&os_version=(.*)&_time=\d{10}&version=(.*)&device_id=(.*)&heybox_id=(\d+)&hkey=/
+const mainURL = 'https://data.xiaoheihe.cn'
+const urlreg = /https:\/\/api\.xiaoheihe\.cn\/account\/home_v\d\/\?lang=(.*)&os_type=(.*)&os_version=(.*)&_time=\d{10}&version=(.*)&device_id=(.*)&heybox_id=(\d+)&hkey=/
 const cookiereg = /pkey=(.*);/
 $.interval = Number($.read('interval') || 600)
 $.subTitle = ''
@@ -70,7 +70,8 @@ if ($.isRequest) {
         }
     })().catch((err) => {
         if (err instanceof ERR.CookieError) {
-            $.notify("小黑盒 - Cookie 错误", "", err.message, 'heybox://%7B%22protocol_type%22%3A%22openWindow%22%2C%22full_screen%22%3Afalse%2C%0A%20%20%20%20%22webview%22%3A%7B%22url%22%3A%22https%3A%2F%2Fapi.xiaoheihe.cn%2Faccount%2Fhome_v2%22%2C%22bg%22%3A%22FFFFFF%22%2C%0A%20%20%20%20%22loading%22%3Atrue%2C%22pull%22%3Afalse%2C%22refresh%22%3Afalse%7D%7D')
+            $.notify("小黑盒 - Cookie 错误", "", err.message, 'heybox://%7B%22protocol_type%22%3A%22openWindow%22%2C%22full_screen%22%3Afalse%2C%0A%20%20%20%20%22webview%22%3A%7B%22url%22%3A%22https%3A%2F%2F
+                     .xiaoheihe.cn%2Faccount%2Fhome_v2%22%2C%22bg%22%3A%22FFFFFF%22%2C%0A%20%20%20%20%22loading%22%3Atrue%2C%22pull%22%3Afalse%2C%22refresh%22%3Afalse%7D%7D')
         } else {
             $.notify("小黑盒 - 出现错误", "", JSON.stringify(err))
             $.error(JSON.stringify(err))
@@ -335,7 +336,7 @@ function Tasklist() {
 
 function GetCookie() {
     if (cookiereg.exec($request.headers['Cookie'])[1]) {
-        let pkey = cookiereg.exec($request.headers['Cookie'])[1]
+        let pkey = 'MTYyNTQyNzA3Ni41MV8yNzAxODEyOHl4dmlsbm9xa3hsdXVieGI__'
         let lang = urlreg.exec($request.url)[1]
         let os_t = urlreg.exec($request.url)[2]
         let os_v = urlreg.exec($request.url)[3]
